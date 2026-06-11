@@ -1,0 +1,1064 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='vegeclub.xml' b:templateVersion='3.0.0' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+<meta content='width=device-width, initial-scale=1, shrink-to-fit=no' name='viewport'/>
+<title><data:view.title.escaped/></title>
+<b:include data='blog' name='all-head-content'/>
+<b:if cond='data:view.isHomepage'>
+<b:if cond='data:blog.metaDescription'>
+<meta expr:content='data:blog.metaDescription' name='description'/>
+</b:if>
+<b:elseif cond='data:view.isSingleItem'/>
+<b:if cond='data:view.description'>
+<meta expr:content='data:view.description' name='description'/>
+</b:if>
+<b:elseif cond='data:view.isLabelSearch'/>
+<meta expr:content='data:view.label + &quot; kategorisindeki tüm forum konuları ve tartışmalar.&quot;' name='description'/>
+<b:elseif cond='data:view.isArchive'/>
+<meta expr:content='data:view.archive.text + &quot; arşivine ait forum konuları.&quot;' name='description'/>
+<b:elseif cond='data:view.isSearch'/>
+<meta expr:content='data:view.search.query + &quot; için forum içi arama sonuçları.&quot;' name='description'/>
+<b:else/>
+<b:if cond='data:blog.metaDescription'>
+<meta expr:content='data:blog.metaDescription' name='description'/>
+</b:if>
+</b:if>
+<b:if cond='data:view.isSearch or data:view.isError'>
+<meta content='noindex, follow' name='robots'/>
+<b:else/>
+<meta content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' name='robots'/>
+</b:if>
+<meta expr:content='data:blog.title' property='og:site_name'/>
+<b:if cond='data:view.isSingleItem'>
+<meta content='article' property='og:type'/>
+<b:else/>
+<meta content='website' property='og:type'/>
+</b:if>
+<meta content='tr_TR' property='og:locale'/>
+<meta content='summary_large_image' name='twitter:card'/>
+<meta expr:content='data:view.title.escaped' name='twitter:title'/>
+<b:if cond='data:view.description'>
+<meta expr:content='data:view.description' name='twitter:description'/>
+<b:elseif cond='data:blog.metaDescription'/>
+<meta expr:content='data:blog.metaDescription' name='twitter:description'/>
+</b:if>
+<b:if cond='data:view.isHomepage'>
+<script type='application/ld+json'>{&quot;@context&quot;:&quot;https://schema.org&quot;,&quot;@type&quot;:&quot;WebSite&quot;,&quot;name&quot;:&quot;<data:blog.title/>&quot;,&quot;url&quot;:&quot;<data:blog.homepageUrl/>&quot;,&quot;potentialAction&quot;:{&quot;@type&quot;:&quot;SearchAction&quot;,&quot;target&quot;:{&quot;@type&quot;:&quot;EntryPoint&quot;,&quot;urlTemplate&quot;:&quot;<data:blog.homepageUrl/>search?q={search_term_string}&quot;},&quot;query-input&quot;:&quot;required name=search_term_string&quot;}}</script>
+</b:if>
+<b:skin version='1.7.5'><![CDATA[:root{--vbulletin-darkblue:#182332;--vbulletin-headerbg:#223143;--forum-blue-stripe:#2b70c9;--forum-bg-light:#f4f6f9;--forum-row-hover:#f8fafc;--text-color:#334155;--text-meta:#5b6b7f;--vbulletin-alt1:#fff;--vbulletin-alt2:#f8fafc;--vbulletin-border:#e2e8f0;--vbulletin-link:#1f5fb8;--pulse-color:#ef4444}*{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial,Tahoma,Calibri,Verdana,sans-serif;font-size:13px;background:var(--forum-bg-light);color:var(--text-color);padding:0 0 16px;line-height:1.5}a{color:var(--vbulletin-link);text-decoration:none}a:hover{text-decoration:underline;color:var(--vbulletin-darkblue)}button{font:inherit}.page-wrapper{max-width:1240px;margin:0 auto;padding:16px}.hamdi-header-wrapper{background:var(--vbulletin-darkblue);width:100%;border-bottom:3px solid var(--forum-blue-stripe)}.hamdi-header-container{max-width:1240px;margin:0 auto;padding:0 16px;height:65px;display:flex;align-items:center;justify-content:space-between}.hamdi-logo-area a{font-size:24px;font-weight:800;color:#fff!important;letter-spacing:-.5px}.hamdi-logo-area a span{color:var(--forum-blue-stripe)}.hamdi-main-nav{display:flex;align-items:center;gap:8px}.hamdi-nav-item{color:#e2e8f0;font-size:13px;font-weight:600;padding:8px 12px;border-radius:4px;display:inline-flex;align-items:center;gap:6px;transition:background .2s,color .2s;background:transparent;border:0;cursor:pointer}.hamdi-nav-item:hover{background:rgba(255,255,255,.08);color:#fff!important;text-decoration:none}.hamdi-nav-item.nav-register{background:var(--forum-blue-stripe);color:#fff!important}.hamdi-nav-item.nav-register:hover{background:#1d5db3}.hamdi-sub-navbar{background:#fff;border-bottom:1px solid var(--vbulletin-border);box-shadow:0 1px 2px rgba(0,0,0,.03);margin-bottom:20px}.hamdi-sub-container{max-width:1240px;margin:0 auto;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}.hamdi-sub-links{display:flex;align-items:center;gap:15px}.hamdi-sub-links a{color:#475569;font-size:12px;font-weight:500;display:inline-flex;align-items:center;gap:5px}.hamdi-sub-links a:hover{color:var(--forum-blue-stripe);text-decoration:none}.hamdi-search-form{display:flex;align-items:center}.hamdi-search-input{padding:6px 12px;font-size:12px;border:1px solid #cbd5e1;border-radius:4px 0 0 4px;outline:0;width:180px;height:32px}.hamdi-search-btn{height:32px;padding:0 12px;background:var(--forum-blue-stripe);color:#fff;border:0;border-radius:0 4px 4px 0;cursor:pointer;font-size:12px;font-weight:700}.forum-block{display:flex;flex-direction:column;border:1px solid var(--vbulletin-border);background:#fff;margin-bottom:20px;border-radius:6px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.02)}.forum-header{background:var(--vbulletin-headerbg);color:#fff;font-weight:700;padding:12px 16px;font-size:14px;display:flex;align-items:center;justify-content:space-between;gap:8px;border-bottom:2px solid var(--forum-blue-stripe)}.hamdi-forum-row{display:grid;grid-template-columns:46px 1fr 100px 30px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--vbulletin-border);background:#fff;transition:background .15s ease;position:relative}.hamdi-forum-row:hover{background:var(--forum-row-hover)}.hamdi-forum-row:last-child{border-bottom:0}.hamdi-title a::after{content:"";position:absolute;inset:0;z-index:1}.hamdi-avatar-holder{width:34px;height:34px;border-radius:50%;background:#f1f5f9;display:flex;align-items:center;justify-content:center;border:1px solid var(--vbulletin-border);position:relative;z-index:2}.hamdi-status-dot{width:10px;height:10px;background:var(--forum-blue-stripe);border-radius:50%;position:absolute;bottom:-1px;right:-1px;border:2px solid #fff}.hamdi-main-info{display:flex;flex-direction:column;gap:3px;padding-left:4px;overflow:hidden}.hamdi-title{font-size:14px;font-weight:600;color:#1e293b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}.hamdi-title a{color:#1e293b;position:relative;z-index:2}.hamdi-title a:hover{color:var(--forum-blue-stripe)}.hamdi-meta{font-size:11px;color:var(--text-meta)}.hamdi-author{color:#475569;font-weight:500}.hamdi-replies-zone{text-align:right;font-size:12px;color:var(--text-meta);padding-right:10px;font-weight:600}.hamdi-arrow-zone{display:flex;align-items:center;justify-content:flex-end;color:#94a3b8}.forum-row{display:grid;grid-template-columns:54px 1fr;border-bottom:1px solid var(--vbulletin-border);background:#fff}.forum-row:last-child{border-bottom:0}.alt-row-1{background:var(--vbulletin-alt1);padding:14px 16px;width:100%;min-width:0}.category-icon-wrapper{display:flex;align-items:center;justify-content:center;background:var(--vbulletin-alt2);border-right:1px solid var(--vbulletin-border);color:var(--forum-blue-stripe);width:54px;height:100%;min-height:68px}.cat-last-post-box{margin-top:5px;font-size:12px;color:var(--text-meta)}.cat-last-title{font-weight:600;color:var(--vbulletin-link)}.cat-last-meta{font-size:11px;color:var(--text-meta);margin-top:1px}.stat-online-card{background:var(--vbulletin-headerbg);color:#fff;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--vbulletin-border);border-left:4px solid var(--forum-blue-stripe)}.stat-online-card-left{display:flex;align-items:center;gap:12px}.stat-online-card-icon{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff}.stat-online-card-info{display:flex;flex-direction:column;gap:2px}.stat-online-title{font-size:11px;color:rgba(255,255,255,.85);font-weight:500}.stat-online-count{font-size:16px;font-weight:700;letter-spacing:-.3px}.stat-online-btn{background:var(--forum-blue-stripe);color:#fff!important;font-size:12px;font-weight:600;padding:7px 12px;border-radius:4px;border:1px solid transparent;display:inline-flex;align-items:center;gap:6px;transition:background .2s;cursor:pointer}.stat-online-btn:hover{background:var(--vbulletin-darkblue);text-decoration:none;border-color:rgba(255,255,255,.1)}.hamdi-stat-block{border:1px solid var(--vbulletin-border);background:#fff;margin-bottom:20px;border-radius:6px;overflow:hidden;display:flex;flex-direction:column}.stat-line-truncate{display:block;width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}.stat-line-item{display:flex;align-items:center;gap:6px;width:100%;overflow:hidden;min-width:0}.stat-grid-row{display:flex;flex-direction:row;width:100%}.stat-grid-cell{padding:14px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-bottom:1px solid var(--vbulletin-border);border-right:1px solid var(--vbulletin-border);width:33.33%}.stat-grid-cell:last-child{border-right:0}.stat-small-icon-bg{width:36px;height:36px;background:#f1f5f9;border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--vbulletin-link);flex-shrink:0;border:1px solid var(--vbulletin-border);margin-bottom:5px}.stat-cell-info{display:flex;flex-direction:column;align-items:center;text-align:center;gap:1px}.stat-cell-label{font-size:11px;color:var(--text-meta);font-weight:500}.stat-cell-value{font-size:14px;font-weight:700;color:#1e293b}.footer-link-grid{display:grid;grid-template-columns:repeat(2,1fr);width:100%;margin-top:15px}.footer-link-grid div{padding:12px;border:1px solid var(--vbulletin-border);text-align:center;font-weight:500}.footer-link-grid div a{color:var(--text-color)}.footer-link-grid div a:hover{color:var(--vbulletin-link)}.footer-link-grid div:nth-child(even){border-left:none}.footer-link-grid div:nth-child(n+3){border-top:0}.postbit-container{border:1px solid var(--vbulletin-border);background:#fff;margin-bottom:20px;border-radius:6px;overflow:hidden;display:flex;flex-direction:column;width:100%}.postbit-head{background:var(--vbulletin-headerbg);color:#fff;padding:12px 16px;font-weight:700;display:flex;justify-content:space-between;align-items:center;font-size:13px;border-bottom:2px solid var(--forum-blue-stripe)}.postbit-body{display:flex;flex-direction:column;width:100%}.postbit-sidebar{width:100%;background:var(--vbulletin-alt2);border-bottom:1px solid var(--vbulletin-border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.postbit-user-info{display:flex;align-items:center;gap:10px}.postbit-avatar-wrapper{width:34px;height:34px;border-radius:50%;background:#f1f5f9;display:flex;align-items:center;justify-content:center;border:1px solid var(--vbulletin-border);position:relative;color:#64748b}.postbit-online-dot{width:9px;height:9px;background:var(--forum-blue-stripe);border-radius:50%;position:absolute;bottom:-1px;right:-1px;border:1.5px solid #fff;box-shadow:0 0 2px rgba(0,0,0,.2)}.postbit-username{font-size:14px;font-weight:700;color:var(--vbulletin-link)}.postbit-user-stats{display:flex;gap:15px;font-size:12px;color:var(--text-meta);align-items:center}.postbit-stat-item{display:inline-flex;align-items:center;gap:5px}.postbit-main{width:100%;background:var(--vbulletin-alt1);padding:20px 16px}.postbit-content{font-size:14px;line-height:1.7;min-height:100px;color:var(--text-color);width:100%}.postbit-content img,.postbit-content iframe{width:100%;display:block;margin:15px auto;aspect-ratio:16/9;max-width:700px}.postbit-content img{height:auto}.postbit-foot{background:var(--vbulletin-alt2);border-top:1px solid var(--vbulletin-border);padding:12px 16px;display:flex;justify-content:space-between;font-size:12px;align-items:center}.postbit-share-zone{display:flex;align-items:center;gap:12px}.postbit-share-link{display:inline-flex;align-items:center;gap:4px;font-weight:500;color:#475569}.postbit-share-link:hover{color:var(--vbulletin-link);text-decoration:none}.postbit-reply-btn{display:inline-flex;align-items:center;gap:4px;font-weight:700;color:var(--forum-blue-stripe)!important;cursor:pointer;background:transparent;border:0}.postbit-reply-btn:hover{text-decoration:underline;color:var(--vbulletin-link)!important}.comment-form-holder-box{display:none;opacity:0;transition:opacity .3s ease-in-out;padding:15px;background:var(--vbulletin-alt2);border-top:1px solid var(--vbulletin-border)}.comment-form-holder-box.form-active{display:block!important;opacity:1!important}.vb-pagination{display:flex;justify-content:center;align-items:center;gap:10px;padding:15px;background:#fff;border-top:1px solid var(--vbulletin-border)}.vb-page-btn{padding:6px 14px;background:var(--vbulletin-alt2);border:1px solid var(--vbulletin-border);border-radius:4px;cursor:pointer;font-size:12px;font-weight:600;color:var(--text-color);transition:background .15s,color .15s}.vb-page-btn:hover:not(:disabled){background:var(--forum-blue-stripe);color:#fff;border-color:var(--forum-blue-stripe)}.vb-page-btn:disabled{opacity:.5;cursor:not-allowed}.vb-page-info{font-size:12px;color:var(--text-meta);font-weight:500}.animate-spin{animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.main-content-layout{display:flex;flex-direction:column;gap:20px;width:100%}.main-column{width:100%}.vb-notif{position:fixed;top:14px;right:16px;z-index:100000}.vb-notif-bell{width:42px;height:42px;border-radius:50%;background:var(--vbulletin-darkblue);border:2px solid var(--forum-blue-stripe);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25);position:relative;padding:0}.vb-notif-bell:hover{background:var(--vbulletin-headerbg)}.vb-notif-dot{position:absolute;top:-4px;right:-4px;min-width:18px;height:18px;padding:0 4px;background:var(--pulse-color);color:#fff;border-radius:9px;font-size:11px;font-weight:700;display:none;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 0 0 0 rgba(239,68,68,.7);animation:pulse-anim 1.2s infinite}.vb-notif.has-unread .vb-notif-dot{display:flex}.vb-notif-panel{position:absolute;top:52px;right:0;width:320px;max-width:86vw;max-height:70vh;overflow-y:auto;background:#fff;border:1px solid var(--vbulletin-border);border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.18);display:none}.vb-notif.open .vb-notif-panel{display:block}.vb-notif-head{background:var(--vbulletin-headerbg);color:#fff;font-weight:700;padding:10px 14px;font-size:13px;border-bottom:2px solid var(--forum-blue-stripe);position:sticky;top:0}.vb-notif-item{display:block;padding:10px 14px;border-bottom:1px solid var(--vbulletin-border);font-size:12px;color:var(--text-color)}.vb-notif-item:last-child{border-bottom:0}.vb-notif-item:hover{background:var(--forum-row-hover);text-decoration:none}.vb-notif-kind{display:inline-block;font-size:10px;font-weight:700;color:#fff;background:var(--forum-blue-stripe);border-radius:3px;padding:1px 6px;margin-bottom:4px}.vb-notif-kind.reply{background:var(--pulse-color)}.vb-notif-title{font-weight:600;color:var(--vbulletin-link);display:block}.vb-notif-sub{color:var(--text-meta);margin-top:2px}.vb-notif-empty{padding:18px 14px;text-align:center;color:var(--text-meta);font-size:12px}.forum-notify-box{position:fixed;bottom:20px;right:20px;background:#fff;border-left:4px solid var(--pulse-color);box-shadow:0 4px 15px rgba(0,0,0,.15);padding:12px 18px;border-radius:4px;z-index:99999;display:none;align-items:center;gap:12px;animation:slideInUp .4s ease-out}.notify-pulse-dot{width:10px;height:10px;background:var(--pulse-color);border-radius:50%;box-shadow:0 0 0 0 rgba(239,68,68,.7);animation:pulse-anim 1.2s infinite}@keyframes slideInUp{from{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}@keyframes pulse-anim{0%{box-shadow:0 0 0 0 rgba(239,68,68,.7)}70%{box-shadow:0 0 0 10px rgba(239,68,68,0)}100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}}.widget.ContactForm{position:absolute!important;left:-99999px!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important}#mifrm-overlay{display:none;position:fixed;inset:0;width:100%;height:100%;background:rgba(0,0,0,.5);backdrop-filter:blur(5px);z-index:99999;justify-content:center;align-items:center}#mifrm-panel{width:90%;max-width:600px;background:#fff;padding:20px;border-radius:8px;position:relative;box-shadow:0 0 20px rgba(0,0,0,.3)}#mifrm-panel .mifrm-close{position:absolute;top:10px;right:14px;font-size:22px;line-height:1;cursor:pointer;color:#64748b;background:transparent;border:0}.btn-action{width:100%;padding:12px;border:0;border-radius:4px;cursor:pointer;color:#fff;margin-bottom:10px;font-weight:bold}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}@media(max-width:768px){.hamdi-header-container{height:auto;flex-direction:column;padding:12px;gap:12px}.hamdi-main-nav{flex-wrap:wrap;justify-content:center}.hamdi-sub-container{flex-direction:column;text-align:center}.hamdi-sub-links{justify-content:center;flex-wrap:wrap}.footer-link-grid{grid-template-columns:1fr}.footer-link-grid div{border-left:1px solid var(--vbulletin-border)!important;border-top:1px solid var(--vbulletin-border)!important}.footer-link-grid div:first-child{border-top:1px solid var(--vbulletin-border)!important}.postbit-sidebar{flex-direction:column;align-items:flex-start;gap:10px}.postbit-user-stats{width:100%;justify-content:flex-start;gap:14px}.stat-cell-value{font-size:12px}.stat-cell-label{font-size:10px}.hamdi-forum-row{grid-template-columns:42px 1fr 60px;padding:10px}.hamdi-replies-zone{font-size:11px;padding-right:4px}.hamdi-arrow-zone{display:none}.vb-notif{top:10px;right:10px}.vb-notif-bell{width:38px;height:38px}}]]></b:skin>
+</head>
+<body>
+<div class='forum-notify-box' id='forumLiveNotification'>
+<div class='notify-pulse-dot'/>
+<div style='font-family:Arial,sans-serif; font-size:12px;'>
+<div id='notifyTitle' style='font-weight:bold; color:var(--vbulletin-darkblue);'>Yeni Aktivite Algılandı!</div>
+<div id='notifyDesc' style='color:var(--text-meta); font-size:11px;'>Foruma az önce yeni bir girdi sağlandı.</div>
+</div>
+<button onclick='document.getElementById(&quot;forumLiveNotification&quot;).style.display=&quot;none&quot;' style='background:none; border:none; color:#cbd5e1; font-size:16px; cursor:pointer; font-weight:bold; margin-left:10px;'>&#215;</button>
+</div>
+<header class='hamdi-header-wrapper'>
+<div class='hamdi-header-container'>
+<div class='hamdi-logo-area'>
+<b:if cond='data:view.isPost'>
+<div style='margin:0;padding:0;font-size:inherit;font-weight:inherit;display:inline;'>
+<a expr:href='data:blog.homepageUrl'>
+<data:blog.title/><span>.net</span>
+</a>
+</div>
+<b:else/>
+<h1 style='margin:0;padding:0;font-size:inherit;font-weight:inherit;display:inline;'>
+<a expr:href='data:blog.homepageUrl'>
+<data:blog.title/><span>.net</span>
+</a>
+</h1>
+</b:if>
+</div>
+<nav class='hamdi-main-nav'>
+<a class='hamdi-nav-item' expr:href='data:blog.homepageUrl'>
+<svg aria-hidden='true' fill='none' focusable='false' height='15' stroke='currentColor' stroke-width='2.5' viewBox='0 0 24 24' width='15'><path d='m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/><polyline points='9 22 9 12 15 12 15 22'/></svg>
+Forum
+</a>
+<a class='hamdi-nav-item' href='javascript:void(0);' onclick='document.getElementById(&quot;mifrm-overlay&quot;).style.display=&quot;flex&quot;'>
+<svg aria-hidden='true' fill='none' focusable='false' height='15' stroke='currentColor' stroke-width='2.5' viewBox='0 0 24 24' width='15'><path d='M12 5v14M5 12h14'/></svg>
+Hızlı Konu Aç
+</a>
+<div id='mifrm-overlay'>
+<div id='mifrm-panel'>
+<span class='mifrm-close' onclick='document.getElementById(&quot;mifrm-overlay&quot;).style.display=&quot;none&quot;'>&#215;</span>
+<div style='text-align:center; font-weight:bold; margin-bottom:15px; font-size:18px;'>MIFRM Hızlı Konu Aç</div>
+<button class='btn-action' id='loginBtn' style='background:#4285f4;'>Google Giriş</button>
+<button class='btn-action' id='logoutBtn' style='display:none; background:#db4437;'>Çıkış Yap</button>
+<input id='title' placeholder='Konu Başlığı' style='width:100%; padding:10px; margin-bottom:10px; border:1px solid #ccc; box-sizing:border-box;' type='text'/>
+<select id='category' style='width:100%; padding:10px; margin-bottom:10px; border:1px solid #ccc; background:#fff;'/>
+<div contenteditable='true' id='editor' style='width:100%; height:200px; padding:10px; border:1px solid #ccc; overflow-y:scroll; background:#fdfdfd; margin-bottom:10px;'/>
+<button class='btn-action' id='publishBtn' style='background:#0f9d58;'>Yazıyı Yayınla</button>
+<div id='status' style='text-align:center; color:#555;'>Hazır</div>
+</div>
+</div>
+<script>(function(){const BLOG_ID=&quot;2141149813172676021&quot;;const CLIENT_ID=&quot;963800962880-tk70ohacatac4vou6e4fvu163ip1tlro.apps.googleusercontent.com&quot;;const el={login:document.getElementById(&#39;loginBtn&#39;),logout:document.getElementById(&#39;logoutBtn&#39;),cat:document.getElementById(&#39;category&#39;),title:document.getElementById(&#39;title&#39;),editor:document.getElementById(&#39;editor&#39;),status:document.getElementById(&#39;status&#39;),pub:document.getElementById(&#39;publishBtn&#39;)};el.cat.innerHTML=&#39;&lt;option value=&quot;&quot;&gt;Kategori Seçin&lt;/option&gt;&#39;;el.pub.onclick=async()=&gt;{const token=localStorage.getItem(&quot;token&quot;);if(!token)return alert(&quot;Önce Giriş Yapın!&quot;);el.status.textContent=&quot;Yayınlanıyor...&quot;;try{const res=await fetch(&quot;https://www.googleapis.com/blogger/v3/blogs/&quot;+BLOG_ID+&quot;/posts/&quot;,{method:&quot;POST&quot;,headers:{&quot;Authorization&quot;:&quot;Bearer &quot;+token,&quot;Content-Type&quot;:&quot;application/json&quot;},body:JSON.stringify({title:el.title.value,content:el.editor.innerHTML,labels:[el.cat.value]})});const data=await res.json();if(data.id){alert(&quot;Başarılı!&quot;);document.getElementById(&quot;mifrm-overlay&quot;).style.display=&quot;none&quot;;}else{el.status.textContent=&quot;Hata oluştu.&quot;;}}catch(e){el.status.textContent=&quot;Bağlantı hatası.&quot;;}};el.login.onclick=()=&gt;google.accounts.oauth2.initTokenClient({client_id:CLIENT_ID,scope:&quot;https://www.googleapis.com/auth/blogger&quot;,callback:(res)=&gt;{localStorage.setItem(&quot;token&quot;,res.access_token);location.reload();}}).requestAccessToken();el.logout.onclick=()=&gt;{localStorage.removeItem(&quot;token&quot;);location.reload();};if(localStorage.getItem(&quot;token&quot;)){el.login.style.display=&quot;none&quot;;el.logout.style.display=&quot;block&quot;;}})();</script>
+<a class='hamdi-nav-item nav-register' href='https://www.blogger.com/follow.g?blogID=2141149813172676021' target='_blank'>
+<svg aria-hidden='true' fill='none' focusable='false' height='15' stroke='currentColor' stroke-width='2.5' viewBox='0 0 24 24' width='15'><path d='M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2'/><circle cx='9' cy='7' r='4'/><path d='M23 21v-2a4 4 0 0 0-3-3.87'/><path d='M16 3.13a4 4 0 0 1 0 7.75'/></svg>
+Abone Ol
+</a>
+</nav>
+</div>
+</header>
+<div class='hamdi-sub-navbar'>
+<div class='hamdi-sub-container'>
+<nav class='hamdi-sub-links'>
+<a href='/search/label/Duyurular'>
+<svg aria-hidden='true' fill='none' focusable='false' height='15' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.2' viewBox='0 0 24 24' width='15'>
+<path d='M3 11V9a2 2 0 0 1 2-2h3l6-3v16l-6-3H5a2 2 0 0 1-2-2z'/>
+<path d='M8 17v3'/>
+</svg>
+Duyurular
+</a>
+<a href='/search?max-results=50'>
+<svg aria-hidden='true' fill='none' focusable='false' height='15' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.2' viewBox='0 0 24 24' width='15'>
+<path d='M12 5v14'/>
+<path d='M5 12h14'/>
+</svg>
+Yeni Konular
+</a>
+<a href='#statistics'>
+<svg aria-hidden='true' fill='none' focusable='false' height='15' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.2' viewBox='0 0 24 24' width='15'>
+<path d='M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2'/>
+<circle cx='9' cy='7' r='4'/>
+<path d='M23 21v-2a4 4 0 0 0-3-3.87'/>
+<path d='M16 3.13a4 4 0 0 1 0 7.75'/>
+</svg>
+Aktif Üyeler
+</a>
+</nav>
+<div class='hamdi-search-box'>
+<form action='/search' class='hamdi-search-form' method='get'>
+<input class='hamdi-search-input' name='q' placeholder='Forumda ara...' type='text'/>
+<button class='hamdi-search-btn' type='submit'>Ara</button>
+</form>
+</div>
+</div>
+</div>
+<div class='page-wrapper'>
+<div class='main-content-layout'>
+<main class='main-column'>
+<b:if cond='data:view.isHomepage'>
+<section class='forum-block'>
+<div class='forum-header'>
+<span>
+<svg aria-hidden='true' fill='none' focusable='false' height='16' stroke='currentColor' stroke-width='2.5' style='vertical-align:middle; margin-right:6px;' viewBox='0 0 24 24' width='16'><path d='M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'/></svg>
+Güncel Forum Başlıkları
+</span>
+</div>
+<div id='vb-last-posts-target'>
+<div style='padding:25px; text-align:center; color:#64748b; display:flex; align-items:center; justify-content:center; gap:8px;'>
+<svg aria-hidden='true' class='animate-spin' fill='none' focusable='false' height='16' stroke='currentColor' stroke-width='3' viewBox='0 0 24 24' width='16'><line x1='12' x2='12' y1='2' y2='6'/><line x1='12' x2='12' y1='18' y2='22'/><line x1='4.93' x2='7.76' y1='4.93' y2='7.76'/><line x1='16.24' x2='19.07' y1='16.24' y2='19.07'/><line x1='2' x2='6' y1='12' y2='12'/><line x1='18' x2='22' y1='12' y2='12'/></svg>
+Yükleniyor...
+</div>
+</div>
+<div class='vb-pagination' id='vb-pagination-ctrl' style='display:none;'>
+<button class='vb-page-btn' id='vb-prev-btn' onclick='changeVbPage(-1)'>&#171; Önceki Sayfa</button>
+<span class='vb-page-info' id='vb-page-info-text'>Sayfa 1 / 1</span>
+<button class='vb-page-btn' id='vb-next-btn' onclick='changeVbPage(1)'>Sonraki Sayfa &#187;</button>
+</div>
+</section>
+<b:section id='forum-categories-section' maxwidgets='1' showaddelement='false'>
+  <b:widget id='Label1' locked='true' title='Forum Kategorileri' type='Label' version='2' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
+      <b:widget-setting name='display'>LIST</b:widget-setting>
+      <b:widget-setting name='selectedLabelsList'/>
+      <b:widget-setting name='showType'>ALL</b:widget-setting>
+      <b:widget-setting name='showFreqNumbers'>false</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+<section class='forum-block'>
+<div class='forum-header'>
+<span>
+<svg aria-hidden='true' fill='none' focusable='false' height='16' stroke='currentColor' stroke-width='2.5' style='vertical-align:middle; margin-right:6px;' viewBox='0 0 24 24' width='16'><path d='M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z'/></svg>
+<data:title/>
+</span>
+</div>
+<b:loop values='data:labels' var='label'>
+<div class='forum-row'>
+<div class='category-icon-wrapper'>
+<svg aria-hidden='true' fill='none' focusable='false' height='20' stroke='currentColor' stroke-width='2.2' viewBox='0 0 24 24' width='20'><path d='M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'/></svg>
+</div>
+<div class='alt-row-1 class-target-label-box' expr:data-label='data:label.name'>
+<a expr:href='data:label.url' style='font-weight:bold; font-size:14px; color:var(--vbulletin-link);'><data:label.name/></a>
+<div class='cat-last-post-box'>
+<span>Son Konu Yükleniyor...</span>
+</div>
+</div>
+</div>
+</b:loop>
+</section>
+</b:includable>
+    <b:includable id='cloud'>
+<b:loop values='data:labels' var='label'>
+<span class='label-size'>
+<b:class expr:name='&quot;label-size-&quot; + data:label.cssSize'/>
+<a class='label-name' expr:href='data:label.url'>
+<data:label.name/>
+<b:if cond='data:this.showFreqNumbers'>
+<span class='label-count'><data:label.count/></span>
+</b:if>
+</a>
+</span>
+</b:loop>
+</b:includable>
+    <b:includable id='content'>
+<div class='widget-content'>
+<b:class expr:name='data:this.display + &quot;-label-widget-content&quot;'/>
+<b:include cond='data:this.display == &quot;list&quot;' name='list'/>
+<b:include cond='data:this.display == &quot;cloud&quot;' name='cloud'/>
+</div>
+</b:includable>
+    <b:includable id='list'>
+<ul>
+<b:loop values='data:labels' var='label'>
+<li>
+<a class='label-name' expr:href='data:label.url'>
+<data:label.name/>
+<b:if cond='data:this.showFreqNumbers'>
+<span class='label-count'><data:label.count/></span>
+</b:if>
+</a>
+</li>
+</b:loop>
+</ul>
+</b:includable>
+  </b:widget>
+</b:section>
+<div class='hamdi-stat-block' id='statistics'>
+<div class='forum-header'>
+<span>
+<svg aria-hidden='true' fill='none' focusable='false' height='16' stroke='currentColor' stroke-width='2.5' style='vertical-align:middle; margin-right:6px;' viewBox='0 0 24 24' width='16'><line x1='18' x2='18' y1='20' y2='10'/><line x1='12' x2='12' y1='20' y2='4'/><line x1='6' x2='6' y1='20' y2='14'/></svg>
+Forum İstatistikleri
+</span>
+</div>
+<div class='stat-online-card'>
+<div class='stat-online-card-left'>
+<div class='stat-online-card-icon'>
+<svg aria-hidden='true' fill='none' focusable='false' height='22' stroke='currentColor' stroke-width='2.5' viewBox='0 0 24 24' width='22'>
+<path d='M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2'/>
+<circle cx='9' cy='7' r='4'/>
+<path d='M23 21v-2a4 4 0 0 0-3-3.87'/>
+<path d='M16 3.13a4 4 0 0 1 0 7.75'/>
+</svg>
+</div>
+<div class='stat-online-card-info'>
+<span class='stat-online-title'>Şu anda forumda:</span>
+<span class='stat-online-count'>Yükleniyor...</span>
+</div>
+</div>
+<a class='stat-online-btn' href='#'>
+<svg aria-hidden='true' fill='none' focusable='false' height='14' stroke='currentColor' stroke-width='2.5' viewBox='0 0 24 24' width='14'><line x1='3' x2='21' y1='12' y2='12'/><line x1='3' x2='21' y1='6' y2='6'/><line x1='3' x2='21' y1='18' y2='18'/></svg>
+Çevrimiçi Üyeler
+</a>
+</div>
+<div class='stat-grid-row'>
+<div class='stat-grid-cell'>
+<div class='stat-small-icon-bg'>
+<svg aria-hidden='true' fill='none' focusable='false' height='18' stroke='currentColor' stroke-width='2.5' viewBox='0 0 24 24' width='18'>
+<path d='M12 20h9'/>
+<path d='M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z'/>
+</svg>
+</div>
+<div class='stat-cell-info'>
+<span class='stat-cell-label'>Konular:</span>
+<span class='stat-cell-value' id='stat-total-posts'>1</span>
+</div>
+</div>
+<div class='stat-grid-cell'>
+<div class='stat-small-icon-bg'>
+<svg aria-hidden='true' fill='none' focusable='false' height='18' stroke='currentColor' stroke-width='2.5' viewBox='0 0 24 24' width='18'>
+<path d='M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'/>
+</svg>
+</div>
+<div class='stat-cell-info'>
+<span class='stat-cell-label'>Mesajlar:</span>
+<span class='stat-cell-value' id='stat-total-comments'>1</span>
+</div>
+</div>
+<div class='stat-grid-cell'>
+<div class='stat-small-icon-bg'>
+<svg aria-hidden='true' fill='none' focusable='false' height='18' stroke='currentColor' stroke-width='2.5' viewBox='0 0 24 24' width='18'>
+<path d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/>
+<circle cx='12' cy='7' r='4'/>
+</svg>
+</div>
+<div class='stat-cell-info'>
+<span class='stat-cell-label'>Toplam Hit:</span>
+<span class='stat-cell-value' id='stat-total-views'>Yükleniyor...</span>
+</div>
+</div>
+</div>
+<div class='alt-row-1' style='padding:12px 16px; font-size:12px; border-top:1px solid var(--vbulletin-border); line-height:1.8; overflow:hidden;'>
+<div class='stat-line-item' style='margin-bottom: 4px;'>
+<span style='white-space: nowrap; flex-shrink: 0;'>En Son Konu:</span>
+<div class='stat-line-truncate' id='stat-last-topic'>Yükleniyor...</div>
+</div>
+<div class='stat-line-item'>
+<span style='white-space: nowrap; flex-shrink: 0;'>En Son Cevap:</span>
+<div class='stat-line-truncate' id='stat-last-reply'>Yükleniyor...</div>
+</div>
+</div>
+</div>
+<b:section id='hidden-blogger-stats' maxwidgets='1' showaddelement='false'>
+  <b:widget id='Stats1' locked='true' title='İstatistikler' type='Stats' version='2' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='showGraphicalCounter'>false</b:widget-setting>
+      <b:widget-setting name='showAnimatedCounter'>false</b:widget-setting>
+      <b:widget-setting name='showSparkline'>false</b:widget-setting>
+      <b:widget-setting name='sparklineStyle'>BLACK_TRANSPARENT</b:widget-setting>
+      <b:widget-setting name='timeRange'>ALL_TIME</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+<div class='blogger-stats-token' style='display:none'/>
+</b:includable>
+    <b:includable id='content'>
+<div class='widget-content'>
+<div expr:id='data:widget.instanceId + &quot;_content&quot;' style='display: none;'>
+<b:if cond='data:showSparkline'>
+<script src='https://www.gstatic.com/charts/loader.js' type='text/javascript'/>
+<span expr:id='data:widget.instanceId + &quot;_sparklinespan&quot;' style='display:inline-block; width:75px; height:30px'/>
+</b:if>
+<span expr:class='&quot;counter-wrapper &quot; + (data:showGraphicalCounter ? &quot;graph-counter-wrapper&quot; : &quot;text-counter-wrapper&quot;)' expr:id='data:widget.instanceId + &quot;_totalCount&quot;'>
+</span>
+</div>
+</div>
+</b:includable>
+  </b:widget>
+</b:section>
+</b:if>
+<b:section id='main-posts-section' showaddelement='true'>
+  <b:widget id='ContactForm1' locked='false' title='İletişim Formu' type='ContactForm' version='2' visible='true'>
+    <b:includable id='main'>
+<b:if cond='data:title'><h2 class='title'><data:title/></h2></b:if>
+<b:include name='content'/>
+</b:includable>
+    <b:includable id='content'>
+<div class='contact-form-widget'>
+<div class='form'>
+<form name='contact-form'>
+<p/>
+<data:contactFormNameMsg/>
+<br/>
+<input class='contact-form-name' expr:id='data:widget.instanceId + &quot;_contact-form-name&quot;' name='name' size='30' type='text' value=''/>
+<p/>
+<data:contactFormEmailMsg/> <span style='font-weight: bolder;'>*</span>
+<br/>
+<input class='contact-form-email' expr:id='data:widget.instanceId + &quot;_contact-form-email&quot;' name='email' size='30' type='text' value=''/>
+<p/>
+<data:contactFormMessageMsg/> <span style='font-weight: bolder;'>*</span>
+<br/>
+<textarea class='contact-form-email-message' cols='25' expr:id='data:widget.instanceId + &quot;_contact-form-email-message&quot;' name='email-message' rows='5'/>
+<p/>
+<input class='contact-form-button contact-form-button-submit' expr:id='data:widget.instanceId + &quot;_contact-form-submit&quot;' expr:value='data:contactFormSendMsg' type='button'/>
+<p/>
+<div style='text-align: center; max-width: 222px; width: 100%'>
+<p class='contact-form-error-message' expr:id='data:widget.instanceId + &quot;_contact-form-error-message&quot;'/>
+<p class='contact-form-success-message' expr:id='data:widget.instanceId + &quot;_contact-form-success-message&quot;'/>
+</div>
+</form>
+</div>
+</div>
+</b:includable>
+  </b:widget>
+  <b:widget id='Blog1' locked='true' title='Blog Kayıtları' type='Blog' version='2' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+      <b:widget-setting name='commentLabel'>Yorumlar</b:widget-setting>
+      <b:widget-setting name='style.textcolor'>#ffffff</b:widget-setting>
+      <b:widget-setting name='showShareButtons'>true</b:widget-setting>
+      <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+      <b:widget-setting name='style.urlcolor'>#ffffff</b:widget-setting>
+      <b:widget-setting name='showAuthor'>false</b:widget-setting>
+      <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
+      <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+      <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+      <b:widget-setting name='timestampLabel'/>
+      <b:widget-setting name='reactionsLabel'/>
+      <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+      <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+      <b:widget-setting name='showLabels'>true</b:widget-setting>
+      <b:widget-setting name='showLocation'>false</b:widget-setting>
+      <b:widget-setting name='postLabelsLabel'/>
+      <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+      <b:widget-setting name='postsPerAd'>2</b:widget-setting>
+      <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+      <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+      <b:widget-setting name='showInlineAds'>true</b:widget-setting>
+      <b:widget-setting name='showReactions'>false</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main' var='top'>
+<b:if cond='!data:view.isHomepage and !data:view.isPost'>
+<div class='postbit-container'>
+<div class='postbit-head'>
+<span>Bu Kategorideki Konular</span>
+<span>Son Paylaşım</span>
+</div>
+<div class='forum-topics-list-wrapper'>
+<b:include data='top' name='posts'/>
+</div>
+</div>
+<b:else/>
+<b:include data='top' name='posts'/>
+</b:if>
+</b:includable>
+    <b:includable id='aboutPostAuthor'>
+<div class='author-name'>
+<a class='g-profile' expr:href='data:post.author.profileUrl' rel='author' title='author profile'>
+<span>
+<data:post.author.name/>
+</span>
+</a>
+</div>
+<div>
+<span class='author-desc'>
+<data:post.author.aboutMe/>
+</span>
+</div>
+</b:includable>
+    <b:includable id='addComments'>
+<a expr:href='data:post.commentsUrl' expr:onclick='data:post.commentsUrlOnclick'>
+<b:message name='messages.postAComment'/>
+</a>
+</b:includable>
+    <b:includable id='blogThisShare'>
+<b:with value='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=270,width=475\&quot;); return false;&quot;' var='onclick'>
+<b:include name='platformShare'/>
+</b:with>
+</b:includable>
+    <b:includable id='bylineByName' var='byline'>
+<b:switch var='data:byline.name'>
+<b:case value='share'/>
+<b:include cond='data:post.shareUrl' name='postShareButtons'/>
+<b:case value='comments'/>
+<b:include cond='data:post.allowComments' name='postCommentsLink'/>
+<b:case value='location'/>
+<b:include cond='data:post.location' name='postLocation'/>
+<b:case value='timestamp'/>
+<b:include cond='not data:view.isPage' name='postTimestamp'/>
+<b:case value='author'/>
+<b:include name='postAuthor'/>
+<b:case value='labels'/>
+<b:include cond='data:post.labels' name='postLabels'/>
+<b:case value='icons'/>
+<b:include cond='data:post.emailPostUrl' name='emailPostIcon'/>
+</b:switch>
+</b:includable>
+    <b:includable id='bylineRegion' var='regionItems'>
+<b:loop values='data:regionItems' var='byline'>
+<b:include data='byline' name='bylineByName'/>
+</b:loop>
+</b:includable>
+    <b:includable id='commentAuthorAvatar'>
+<div class='avatar-image-container'>
+<img class='author-avatar' expr:src='data:comment.authorAvatarSrc' height='35' width='35'/>
+</div>
+</b:includable>
+    <b:includable id='commentDeleteIcon' var='comment'>
+<span expr:class='&quot;item-control &quot; + data:comment.adminClass'>
+<b:if cond='data:showCmtPopup'>
+<div class='goog-toggle-button'>
+<div class='goog-inline-block comment-action-icon'/>
+</div>
+<b:else/>
+<a class='comment-delete' expr:href='data:comment.deleteUrl' expr:title='data:messages.deleteComment'>
+<img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+</a>
+</b:if>
+</span>
+</b:includable>
+    <b:includable id='commentForm' var='post'>
+<div class='comment-form'>
+<a name='comment-form'/>
+<iframe allowtransparency='allowtransparency' class='blogger-comment-from-post' expr:src='data:post.commentFormIframeSrc' id='comment-editor' name='comment-editor' style='width:100%; height:240px; border:none; background:transparent;'/>
+<data:post.cmtfpIframe/>
+</div>
+</b:includable>
+    <b:includable id='commentFormIframeSrc' var='post'>
+<a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+</b:includable>
+    <b:includable id='commentItem' var='comment'>
+<div class='comment' expr:id='&quot;c&quot; + data:comment.id'>
+<b:include cond='data:blog.enabledCommentProfileImages' name='commentAuthorAvatar'/>
+<div class='comment-block'>
+<div class='comment-author'>
+<b:if cond='data:comment.authorUrl'>
+<b:message name='messages.authorSaidWithLink'>
+<b:param expr:value='data:comment.author' name='authorName'/>
+<b:param expr:value='data:comment.authorUrl' name='authorUrl'/>
+</b:message>
+<b:else/>
+<b:message name='messages.authorSaid'>
+<b:param expr:value='data:comment.author' name='authorName'/>
+</b:message>
+</b:if>
+</div>
+<div expr:class='&quot;comment-body&quot; + (data:comment.isDeleted ? &quot; deleted&quot; : &quot;&quot;)'>
+<data:comment.body/>
+</div>
+<div class='comment-footer'>
+<span class='comment-timestamp'>
+<a expr:href='data:comment.url' title='comment permalink'>
+<data:comment.timestamp/>
+</a>
+<b:include data='comment' name='commentDeleteIcon'/>
+</span>
+</div>
+</div>
+</div>
+</b:includable>
+    <b:includable id='commentList' var='comments'>
+<div id='comments-block'>
+<b:loop values='data:comments' var='comment'>
+<b:include data='comment' name='commentItem'/>
+</b:loop>
+</div>
+</b:includable>
+    <b:includable id='commentPicker' var='post'>
+<b:if cond='data:post.showThreadedComments'>
+<b:include data='post' name='threadedComments'/>
+<b:else/>
+<b:include data='post' name='comments'/>
+</b:if>
+</b:includable>
+    <b:includable id='comment_picker' var='post'>
+<div class='comments' id='comments'>
+<div class='comments-content'>
+<b:if cond='data:post.numComments != 0'><b:include data='post' name='comments'/></b:if>
+</div>
+<b:if cond='data:post.allowNewComments'>
+<div class='comment-form-holder-box' id='vb-toggle-comment-area'>
+<b:include data='post' name='commentForm'/>
+</div>
+<b:else/>
+<div style='padding:12px; color:#ef4444; font-weight:bold;'>Bu konu yeni yorumlara kapatılmıştır.</div>
+</b:if>
+</div>
+</b:includable>
+    <b:includable id='comments' var='post'>
+<div class='comments-block'>
+<b:loop values='data:post.comments' var='comment'>
+<div class='comment-thread' expr:id='data:comment.id' style='border:1px solid var(--vbulletin-border); margin-bottom:12px; border-radius:4px; overflow:hidden;'>
+<div style='background:var(--vbulletin-headerbg); color:#ffffff; padding:6px 12px; font-weight:bold; font-size:11px; display:flex; justify-content:space-between;'>
+<span>Yazan: <b:if cond='data:comment.author == &quot;Anonymous&quot; or data:comment.author == &quot;İsimsiz&quot;'>Misafir<b:else/><data:comment.author/></b:if></span>
+<span><data:comment.timestamp/></span>
+</div>
+<div style='padding:14px; background:var(--vbulletin-alt1); color:var(--text-color); font-size:13px; line-height:1.6;'>
+<data:comment.body/>
+</div>
+</div>
+</b:loop>
+</div>
+</b:includable>
+    <b:includable id='commentsLink'>
+<a class='comment-link' expr:href='data:post.commentsUrl' expr:onclick='data:post.commentsUrlOnclick'>
+<b:if cond='data:post.numberOfComments &gt; 0'>
+<b:message name='messages.numberOfComments'>
+<b:param expr:value='data:post.numberOfComments' name='numComments'/>
+</b:message>
+<b:else/>
+<data:messages.postAComment/>
+</b:if>
+</a>
+</b:includable>
+    <b:includable id='commentsLinkIframe'>
+</b:includable>
+    <b:includable id='commentsTitle'>
+<h2 class='title'><data:messages.comments/></h2>
+</b:includable>
+    <b:includable id='defaultAdUnit'>
+<ins class='adsbygoogle' data-ad-format='auto' expr:data-ad-client='data:adClientId ?: data:blog.adsenseClientId' expr:data-ad-host='data:blog.adsenseHostId' expr:style='data:style ?: &quot;display: block;&quot;'>
+<b:attr cond='not data:blog.analytics4' expr:value='data:blog.analyticsAccountNumber' name='data-analytics-uacct'/>
+</ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</b:includable>
+    <b:includable id='emailPostIcon'>
+<span class='byline post-icons'>
+<span class='item-action'>
+<a expr:href='data:post.emailPostUrl' expr:title='data:messages.emailPost'>
+<b:include data='{ iconClass: &quot;touch-icon sharing-icon&quot; }' name='emailIcon'/>
+</a>
+</span>
+</span>
+</b:includable>
+    <b:includable id='facebookShare'>
+<b:with value='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' var='onclick'>
+<b:include name='platformShare'/>
+</b:with>
+</b:includable>
+    <b:includable id='feedLinks'>
+<b:if cond='!data:view.isPost'>
+<b:if cond='data:feedLinks'>
+<div class='blog-feeds'>
+<b:include data='feedLinks' name='feedLinksBody'/>
+</div>
+</b:if>
+<b:else/>
+<div class='post-feeds'>
+<b:loop values='data:posts' var='post'>
+<b:if cond='data:post.allowComments and data:post.feedLinks'>
+<b:include data='post.feedLinks' name='feedLinksBody'/>
+</b:if>
+</b:loop>
+</div>
+</b:if>
+</b:includable>
+    <b:includable id='feedLinksBody' var='links'>
+<div class='feed-links'>
+<data:messages.subscribeTo/>
+<b:loop values='data:links' var='f'>
+<a class='feed-link' expr:href='data:f.url' expr:type='data:f.mimeType' target='_blank'><data:f.name/> (<data:f.feedType/>)</a>
+</b:loop>
+</div>
+</b:includable>
+    <b:includable id='footerBylines'>
+<b:if cond='data:widgets.Blog.first.footerBylines'>
+<b:loop index='i' values='data:widgets.Blog.first.footerBylines' var='region'>
+<b:if cond='not data:region.items.empty'>
+<div expr:class='&quot;post-footer-line post-footer-line-&quot; + (data:i + 1)'>
+<b:with value='&quot;footer-&quot; + (data:i + 1)' var='regionName'>
+<b:include data='region.items' name='bylineRegion'/>
+</b:with>
+</div>
+</b:if>
+</b:loop>
+</b:if>
+</b:includable>
+    <b:includable id='googlePlusShare'>
+</b:includable>
+    <b:includable id='headerByline'>
+<b:if cond='data:widgets.Blog.first.headerByline'>
+<div class='post-header'>
+<div class='post-header-line-1'>
+<b:with value='&quot;header-1&quot;' var='regionName'>
+<b:include data='data:widgets.Blog.first.headerByline.items' name='bylineRegion'/>
+</b:with>
+</div>
+</div>
+</b:if>
+</b:includable>
+    <b:includable id='homePageLink'>
+<a class='home-link' expr:href='data:blog.homepageUrl'>
+<data:messages.home/>
+</a>
+</b:includable>
+    <b:includable id='iframeComments' var='post'>
+</b:includable>
+    <b:includable id='inlineAd' var='post'>
+<b:if cond='!data:view.isPreview'>
+<b:if cond='data:this.adCode or data:this.adClientId or data:blog.adsenseClientId'>
+<div class='inline-ad'>
+<b:if cond='data:this.adCode != &quot;&quot;'>
+<data:this.adCode/>
+<b:else/>
+<b:include cond='data:this.adClientId or data:blog.adsenseClientId' name='defaultAdUnit'/>
+</b:if>
+</div>
+</b:if>
+<b:else/>
+<div class='inline-ad'>
+<div class='inline-ad-placeholder'>
+<span><b:message name='messages.adsGoHere'/></span>
+</div>
+</div>
+</b:if>
+</b:includable>
+    <b:includable id='linkShare'>
+<b:with value='&quot;window.prompt(\&quot;Copy to clipboard: Ctrl+C, Enter\&quot;, \&quot;&quot; + data:originalUrl + &quot;\&quot;); return false;&quot;' var='onclick'>
+<b:include name='platformShare'/>
+</b:with>
+</b:includable>
+    <b:includable id='nextPageLink'>
+<a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:messages.olderPosts'>
+<data:messages.olderPosts/>
+</a>
+</b:includable>
+    <b:includable id='otherSharingButton'>
+<span class='sharing-platform-button sharing-element-other' expr:aria-label='data:messages.shareToOtherApps.escaped' expr:data-url='data:originalUrl' expr:title='data:messages.shareToOtherApps.escaped' role='menuitem' tabindex='-1'>
+<b:with value='{key: &quot;sharingOther&quot;}' var='platform'>
+<b:include name='sharingPlatformIcon'/>
+</b:with>
+<span class='platform-sharing-text'><data:messages.shareOtherApps.escaped/></span>
+</span>
+</b:includable>
+    <b:includable id='platformShare'>
+<a expr:class='&quot;goog-inline-block sharing-&quot; + data:platform.key' expr:data-url='data:originalUrl' expr:href='data:shareUrl + &quot;&amp;target=&quot; + data:platform.target' expr:onclick='data:onclick ? data:onclick : &quot;&quot;' expr:title='data:platform.shareMessage' target='_blank'>
+<span class='share-button-link-text'>
+<data:platform.shareMessage/>
+</span>
+</a>
+</b:includable>
+    <b:includable id='post' var='post'>
+<div class='post'>
+<b:include data='post' name='postMeta'/>
+<b:include data='post' name='postTitle'/>
+<b:include name='headerByline'/>
+<b:if cond='data:view.isSingleItem'>
+<b:include data='post' name='postBody'/>
+<b:else/>
+<b:include data='post' name='postBodySnippet'/>
+<b:include data='post' name='postJumpLink'/>
+</b:if>
+<b:include data='post' name='postFooter'/>
+</div>
+</b:includable>
+    <b:includable id='postAuthor'>
+<span class='byline post-author vcard'>
+<span class='post-author-label'>
+<data:byline.label/>
+</span>
+<span class='fn'>
+<b:if cond='data:post.author.profileUrl'>
+<meta expr:content='data:post.author.profileUrl'/>
+<a class='g-profile' expr:href='data:post.author.profileUrl' rel='author' title='author profile'>
+<span><data:post.author.name/></span>
+</a>
+<b:else/>
+<span><data:post.author.name/></span>
+</b:if>
+</span>
+</span>
+</b:includable>
+    <b:includable id='postBody' var='post'>
+<div class='post-body entry-content float-container' expr:id='&quot;post-body-&quot; + data:post.id'>
+<data:post.body/>
+</div>
+</b:includable>
+    <b:includable id='postBodySnippet' var='post'>
+<b:include data='post' name='postBody'/>
+</b:includable>
+    <b:includable id='postCommentsAndAd' var='post'>
+<article class='post-outer-container'>
+<div class='post-outer'>
+<b:include data='post' name='post'/>
+</div>
+<b:include cond='data:view.isSingleItem' data='post' name='commentPicker'/>
+<b:include cond='data:view.isSingleItem and data:post.includeAd' data='post' name='inlineAd'/>
+</article>
+<b:include cond='data:view.isMultipleItems and data:post.includeAd' data='post' name='inlineAd'/>
+</b:includable>
+    <b:includable id='postCommentsLink'>
+<b:if cond='data:view.isMultipleItems'>
+<span class='byline post-comment-link container'>
+<b:include cond='data:post.commentSource != 1' name='commentsLink'/>
+</span>
+</b:if>
+</b:includable>
+    <b:includable id='postFooter' var='post'>
+<div class='post-footer'>
+<b:include name='footerBylines'/>
+<b:include data='post' name='postFooterAuthorProfile'/>
+</div>
+</b:includable>
+    <b:includable id='postFooterAuthorProfile' var='post'>
+<b:if cond='data:post.author.aboutMe and data:view.isPost'>
+<div class='author-profile'>
+<b:if cond='data:post.author.authorPhoto.url'>
+<img class='author-image' expr:src='data:post.author.authorPhoto.url' width='50px'/>
+<div class='author-about'>
+<b:include data='post' name='aboutPostAuthor'/>
+</div>
+<b:else/>
+<b:include data='post' name='aboutPostAuthor'/>
+</b:if>
+</div>
+</b:if>
+</b:includable>
+    <b:includable id='postHeader' var='post'>
+<b:include name='headerByline'/>
+</b:includable>
+    <b:includable id='postJumpLink' var='post'>
+<div class='jump-link flat-button'>
+<a expr:href='data:post.url fragment &quot;more&quot;' expr:title='data:post.title'>
+<b:eval expr='data:blog.jumpLinkMessage'/>
+</a>
+</div>
+</b:includable>
+    <b:includable id='postLabels'>
+<span class='byline post-labels'>
+<span class='byline-label'><data:byline.label/></span>
+<b:loop index='i' values='data:post.labels' var='label'>
+<a expr:href='data:label.url' rel='tag'>
+<data:label.name/>
+</a>
+</b:loop>
+</span>
+</b:includable>
+    <b:includable id='postLocation'>
+<span class='byline post-location'>
+<data:byline.label/>
+<a expr:href='data:post.location.mapsUrl' target='_blank'><data:post.location.name/></a>
+</span>
+</b:includable>
+    <b:includable id='postMeta' var='post'>
+<b:include data='post' name='postMetadataJSON'/>
+</b:includable>
+    <b:includable id='postMetadataJSONImage'>
+&quot;image&quot;: {
+&quot;@type&quot;: &quot;ImageObject&quot;,
+<b:if cond='data:post.featuredImage.isResizable'>
+&quot;url&quot;: &quot;<b:eval expr='resizeImage(data:post.featuredImage, 1200, &quot;1200:630&quot;)'/>&quot;,
+&quot;height&quot;: 630,
+&quot;width&quot;: 1200
+<b:else/>
+&quot;url&quot;: &quot;https://blogger.googleusercontent.com/img/b/U2hvZWJveA/AVvXsEgfMvYAhAbdHksiBA24JKmb2Tav6K0GviwztID3Cq4VpV96HaJfy0viIu8z1SSw_G9n5FQHZWSRao61M3e58ImahqBtr7LiOUS6m_w59IvDYwjmMcbq3fKW4JSbacqkbxTo8B90dWp0Cese92xfLMPe_tg11g/w1200/&quot;,
+&quot;height&quot;: 348,
+&quot;width&quot;: 1200
+</b:if>
+},
+</b:includable>
+    <b:includable id='postMetadataJSONPublisher'>
+&quot;publisher&quot;: {
+&quot;@type&quot;: &quot;Organization&quot;,
+&quot;name&quot;: &quot;Blogger&quot;,
+&quot;logo&quot;: {
+&quot;@type&quot;: &quot;ImageObject&quot;,
+&quot;url&quot;: &quot;https://blogger.googleusercontent.com/img/b/U2hvZWJveA/AVvXsEgfMvYAhAbdHksiBA24JKmb2Tav6K0GviwztID3Cq4VpV96HaJfy0viIu8z1SSw_G9n5FQHZWSRao61M3e58ImahqBtr7LiOUS6m_w59IvDYwjmMcbq3fKW4JSbacqkbxTo8B90dWp0Cese92xfLMPe_tg11g/h60/&quot;,
+&quot;width&quot;: 206,
+&quot;height&quot;: 60
+}
+},
+</b:includable>
+    <b:includable id='postPagination'>
+<div class='blog-pager container' id='blog-pager'>
+<b:include cond='data:newerPageUrl' name='previousPageLink'/>
+<b:include cond='data:olderPageUrl' name='nextPageLink'/>
+<b:include cond='data:view.url != data:blog.homepageUrl' name='homePageLink'/>
+</div>
+</b:includable>
+    <b:includable id='postReactions'>
+</b:includable>
+    <b:includable id='postShareButtons'>
+<div class='byline post-share-buttons goog-inline-block'>
+<b:with value='data:sharingId ?: ((data:widget.instanceId ?: &quot;sharing&quot;) + &quot;-&quot; + (data:regionName ?: &quot;byline&quot;) + &quot;-&quot; + data:post.id)' var='sharingId'>
+<b:include data='{                                                sharingId: data:sharingId,                                                originalUrl: data:post.url,                                                platforms: data:this.sharing.platforms,                                                shareUrl: data:post.shareUrl,                                                shareTitle: data:post.title,                                              }' name='sharingButtons'/>
+</b:with>
+</div>
+</b:includable>
+    <b:includable id='postTimestamp'>
+<span class='byline post-timestamp'>
+<data:byline.label/>
+<b:if cond='data:post.url'>
+<meta expr:content='data:post.url.canonical'/>
+<a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='permanent link'>
+<time class='published' expr:datetime='data:post.date.iso8601' expr:title='data:post.date.iso8601'>
+<data:post.date/>
+</time>
+</a>
+</b:if>
+</span>
+</b:includable>
+    <b:includable id='postTitle' var='post'>
+<a expr:name='data:post.id'/>
+<b:if cond='data:post.title != &quot;&quot;'>
+<h2 class='post-title entry-title'>
+<b:if cond='data:post.link or (data:post.url and data:view.url != data:post.url)'>
+<a expr:href='data:post.link ?: data:post.url'><data:post.title/></a>
+<b:else/>
+<data:post.title/>
+</b:if>
+</h2>
+</b:if>
+</b:includable>
+    <b:includable id='posts' var='top'>
+<b:loop values='data:posts' var='post'>
+<b:if cond='!data:view.isHomepage and !data:view.isPost'>
+<div class='hamdi-forum-row' style='grid-template-columns: 46px 1fr 120px;'>
+<div class='hamdi-avatar-holder'>
+<svg aria-hidden='true' fill='none' focusable='false' stroke='#94a3b8' stroke-width='2.5' viewBox='0 0 24 24' width='15'><path d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/><circle cx='12' cy='7' r='4'/></svg>
+</div>
+<div class='hamdi-main-info'>
+<div class='hamdi-title'><a expr:href='data:post.url'><data:post.title/></a></div>
+<div class='hamdi-meta'>Konu Açan: <span class='hamdi-author'><data:post.author.name/></span></div>
+</div>
+<div class='hamdi-replies-zone' style='font-size:11px;'>Cevaplar: (<data:post.numberOfComments/>)</div>
+</div>
+</b:if>
+<b:if cond='data:view.isPost'>
+<article class='postbit-container' itemscope='itemscope' itemtype='https://schema.org/BlogPosting'>
+<div class='postbit-head'>
+<time expr:datetime='data:post.date.iso8601' itemprop='datePublished'><data:post.date/></time>
+<span>#1</span>
+</div>
+<div class='postbit-body'>
+<aside class='postbit-sidebar'>
+<div class='postbit-user-info'>
+<div class='postbit-avatar-wrapper'>
+<b:if cond='data:post.author.authorPhoto.url'>
+<img expr:src='data:post.author.authorPhoto.url' style='width:100%; height:100%; border-radius:50%; object-fit:cover;'/>
+<b:else/>
+<svg aria-hidden='true' fill='none' focusable='false' height='16' stroke='currentColor' stroke-width='2.5' viewBox='0 0 24 24' width='16'><path d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/><circle cx='12' cy='7' r='4'/></svg>
+</b:if>
+<div class='postbit-online-dot'/>
+</div>
+<span class='postbit-username' itemprop='author' itemscope='itemscope' itemtype='https://schema.org/Person'>
+<span itemprop='name'><b:if cond='data:post.author.name == &quot;Anonymous&quot; or data:post.author.name == &quot;İsimsiz&quot;'>Misafir<b:else/><data:post.author.name/></b:if></span>
+</span>
+<span style='color:var(--forum-blue-stripe); font-weight:bold; font-size:11px;'>[Üye]</span>
+</div>
+<div class='postbit-user-stats'>
+<span class='postbit-stat-item'>
+<svg aria-hidden='true' fill='none' focusable='false' height='13' stroke='currentColor' stroke-width='2.5' viewBox='0 0 24 24' width='13'><rect height='18' rx='2' ry='2' width='18' x='3' y='4'/><line x1='16' x2='16' y1='2' y2='6'/><line x1='8' x2='8' y1='2' y2='6'/><line x1='3' x2='21' y1='10' y2='10'/></svg>
+<strong>Katılım:</strong> Aktif Üye
+</span>
+<span class='postbit-stat-item'>
+<svg aria-hidden='true' fill='none' focusable='false' height='13' stroke='currentColor' stroke-width='2.5' viewBox='0 0 24 24' width='13'><path d='M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'/></svg>
+<strong>Cevaplar:</strong> <data:post.numberOfComments/>
+</span>
+</div>
+</aside>
+<div class='postbit-main'>
+<h1 itemprop='headline' style='font-size:18px; font-weight:bold; color:var(--vbulletin-darkblue); margin-bottom:14px;'><data:post.title/></h1>
+<div class='postbit-content' itemprop='articleBody'><data:post.body/></div>
+</div>
+</div>
+<div class='postbit-foot'>
+<div class='postbit-share-zone'>
+<a class='postbit-share-link' expr:href='&quot;https://www.facebook.com/sharer.php?u=&quot; + data:post.url' rel='noopener' target='_blank'>
+<svg aria-hidden='true' fill='none' focusable='false' height='13' stroke='currentColor' stroke-width='2.5' viewBox='0 0 24 24' width='13'><path d='M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z'/></svg>
+Facebook
+</a>
+<a class='postbit-share-link' expr:href='&quot;https://twitter.com/intent/tweet?url=&quot; + data:post.url' rel='noopener' target='_blank'>
+<svg aria-hidden='true' fill='none' focusable='false' height='13' stroke='currentColor' stroke-width='2.5' viewBox='0 0 24 24' width='13'><path d='M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z'/></svg>
+Twitter
+</a>
+</div>
+<div class='postbit-reply-btn' onclick='triggerVbulletinReply()'>
+<svg aria-hidden='true' fill='none' focusable='false' height='13' stroke='currentColor' stroke-width='2.5' viewBox='0 0 24 24' width='13'><polyline points='9 17 4 12 9 7'/><path d='M20 18v-2a4 4 0 0 0-4-4H4'/></svg>
+Cevap Yaz
+</div>
+</div>
+</article>
+<div class='vb-pure-comments-holder'>
+<div class='forum-header'>
+<span>
+<svg aria-hidden='true' fill='none' focusable='false' height='15' stroke='currentColor' stroke-width='2.5' style='vertical-align:middle; margin-right:6px;' viewBox='0 0 24 24' width='15'><path d='M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z'/></svg>
+Cevaplar (<data:post.numberOfComments/>)
+</span>
+</div>
+<b:include data='post' name='comment_picker'/>
+</div>
+</b:if>
+</b:loop>
+</b:includable>
+    <b:includable id='previousPageLink'>
+<a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:messages.newerPosts'>
+<data:messages.newerPosts/>
+</a>
+</b:includable>
+    <b:includable id='sharingButton'>
+<span expr:aria-label='data:platform.shareMessage' expr:class='&quot;sharing-platform-button sharing-element-&quot; + data:platform.key' expr:data-href='data:shareUrl + &quot;&amp;target=&quot; + data:platform.target' expr:data-url='data:originalUrl' expr:title='data:platform.shareMessage' role='menuitem' tabindex='-1'>
+<b:include name='sharingPlatformIcon'/>
+<span class='platform-sharing-text'><data:platform.name/></span>
+</span>
+</b:includable>
+    <b:includable id='sharingButtonContent'>
+<div class='flat-icon-button ripple'>
+<b:include name='shareIcon'/>
+</div>
+</b:includable>
+    <b:includable id='sharingButtons'>
+<div class='sharing' expr:aria-owns='&quot;sharing-popup-&quot; + data:sharingId' expr:data-title='data:shareTitle'>
+<button class='sharing-button touch-icon-button' expr:aria-controls='&quot;sharing-popup-&quot; + data:sharingId' expr:aria-label='data:messages.share.escaped' expr:id='&quot;sharing-button-&quot; + data:sharingId' role='button'>
+<b:include name='sharingButtonContent'/>
+</button>
+<b:include name='sharingButtonsMenu'/>
+</div>
+</b:includable>
+    <b:includable id='sharingButtonsMenu'>
+<div class='share-buttons-container'>
+<ul aria-hidden='true' class='share-buttons hidden' expr:aria-label='data:messages.share.escaped' expr:id='&quot;sharing-popup-&quot; + data:sharingId' role='menu'>
+<b:loop values='(data:platforms ?: data:blog.sharing.platforms) filter (p =&gt; p.key not in {&quot;blogThis&quot;})' var='platform'>
+<li>
+<b:include name='sharingButton'/>
+</li>
+</b:loop>
+<li aria-hidden='true' class='hidden'>
+<b:include name='otherSharingButton'/>
+</li>
+</ul>
+</div>
+</b:includable>
+    <b:includable id='sharingPlatformIcon'>
+<b:include data='{ iconClass: (&quot;touch-icon sharing-&quot; + data:platform.key) }' expr:name='data:platform.key + &quot;Icon&quot;'/>
+</b:includable>
+    <b:includable id='threadedCommentForm' var='post'>
+<div class='comment-form'>
+<a name='comment-form'/>
+<h4 id='comment-post-message'><data:messages.postAComment/></h4>
+<b:if cond='data:this.messages.blogComment != &quot;&quot;'>
+<p><data:this.messages.blogComment/></p>
+</b:if>
+<b:include data='post' name='commentFormIframeSrc'/>
+<iframe allowtransparency='allowtransparency' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight ?: &quot;90px&quot;' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+<data:post.cmtfpIframe/>
+<script type='text/javascript'>BLOG_CMT_createIframe(&quot;<data:post.appRpcRelayPath/>&quot;);</script>
+</div>
+</b:includable>
+    <b:includable id='threadedCommentJs' var='post'>
+<script async='async' expr:src='data:post.commentSrc' type='text/javascript'/>
+<b:template-script inline='true' name='threaded_comments'/>
+<script type='text/javascript'>blogger.widgets.blog.initThreadedComments(<data:post.commentJso/>,<data:post.commentMsgs/>,<data:post.commentConfig/>);</script>
+</b:includable>
+    <b:includable id='threadedComments' var='post'>
+<section class='comments threaded' expr:data-embed='data:post.embedCommentForm' expr:data-num-comments='data:post.numberOfComments' id='comments'>
+<a name='comments'/>
+<b:include name='commentsTitle'/>
+<div class='comments-content'>
+<b:if cond='data:post.embedCommentForm'>
+<b:include data='post' name='threadedCommentJs'/>
+</b:if>
+<div id='comment-holder'>
+<data:post.commentHtml/>
+</div>
+</div>
+<p class='comment-footer'>
+<b:if cond='data:post.allowNewComments'>
+<b:include data='post' name='threadedCommentForm'/>
+<b:else/>
+<data:post.noNewCommentsText/>
+</b:if>
+<b:if cond='data:post.showManageComments'>
+<b:include data='post' name='manageComments'/>
+</b:if>
+</p>
+<b:if cond='data:showCmtPopup'>
+<div id='comment-popup'>
+<iframe allowtransparency='allowtransparency' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
+</iframe>
+</div>
+</b:if>
+</section>
+</b:includable>
+    <b:includable id='tooltipCss'>
+<style>.post-body a.b-tooltip-container{position:relative;display:inline-block}.post-body a.b-tooltip-container .b-tooltip{display:block!important;position:absolute;top:100%;left:50%;transform:translate(-20%,1px);visibility:hidden;opacity:0;z-index:1;transition:opacity .2s ease-in-out}.post-body a.b-tooltip-container .b-tooltip iframe{width:200px;height:198px;max-width:none;border:0;border-radius:20px;box-shadow:1px 1px 3px 1px rgba(0,0,0,0.2)}@media(hover:hover){.post-body a.b-tooltip-container:hover .b-tooltip{visibility:visible;opacity:1}}</style>
+</b:includable>
+  </b:widget>
+</b:section>
+</main>
+</div>
+<footer id='footer' style='margin-top:20px; padding:16px; border:1px solid var(--vbulletin-border); border-radius:6px; background:#ffffff;'>
+<div class='footer-link-grid'>
+<div><a href='#'>Gizlilik Politikası</a></div>
+<div><a href='#'>KVKK</a></div>
+<div><a href='#'>Teslimat ve İade Şartları</a></div>
+<div><a href='https://mifrm.blogspot.com/2026/06/forum-kurallar.html'>Forum Kuralları</a></div>
+<div><a href='#'>Kullanım Sözleşmesi</a></div>
+<div><a href='#' style='color:#ef4444 !important;'>İletişim</a></div>
+</div>
+<div style='margin-top:16px; text-align:center; font-size:12px; color:var(--text-meta);'>
+<div>Powered by Blogger &amp; Modern Forum Engine</div>
+<div style='margin-top:4px;'>&#169; 1999-2026 <strong style='color:inherit;'><data:blog.title/><span>.net</span></strong> topluluk sitesidir.</div>
+</div>
+</footer>
+</div>
+<script type='text/javascript'>//<![CDATA[
+var vbAllPosts=[],vbCurrentPage=1,vbPostsPerPage=15,vbNotifItems=[],vbNewest={},VB_NOTIF_KEY="vbNotifState_v1";function safeText(t){var e=document.createElement("div");return e.textContent=null==t?"":t,e.innerHTML}function cleanAuthorName(t){return!t||["Anonymous","İsimsiz","anonymous"].indexOf(t)>-1?"Misafir":t}function vbPad(t){return(""+t).padStart(2,"0")}function formatForumDate(t){var e=new Date(t),n=new Date;if(e.toDateString()===n.toDateString())return"Bugün "+vbPad(e.getHours())+":"+vbPad(e.getMinutes());return e.getDate()+" "+["Oca","Şub","Mar","Nis","May","Haz","Tem","Ağu","Eyl","Eki","Kas","Ara"][e.getMonth()]+" "+e.getFullYear()+", "+vbPad(e.getHours())+":"+vbPad(e.getMinutes())}function vbAltLink(t){if(t&&t.link)for(var e=0;e<t.link.length;e++)if("alternate"===t.link[e].rel)return t.link[e];return null}function vbToast(t,e){var n=document.getElementById("forumLiveNotification");if(n){var a=document.getElementById("notifyTitle"),o=document.getElementById("notifyDesc");a&&(a.textContent=t),o&&(o.textContent=e),n.style.display="flex",clearTimeout(n._h),n._h=setTimeout(function(){n.style.display="none"},6e3)}}function closeToast(){var t=document.getElementById("forumLiveNotification");t&&(t.style.display="none")}function openMifrm(){var t=document.getElementById("mifrm-overlay");if(t&&(t.style.display="flex"),!window._gsiLoaded){window._gsiLoaded=!0;var e=document.createElement("script");e.src="https://accounts.google.com/gsi/client",e.async=!0,document.head.appendChild(e)}}function closeMifrm(){var t=document.getElementById("mifrm-overlay");t&&(t.style.display="none")}function triggerVbulletinReply(){var t=document.getElementById("vb-toggle-comment-area");t&&(t.classList.contains("form-active")?t.classList.remove("form-active"):(t.classList.add("form-active"),vbToast("Cevap Paneli Açıldı","Lütfen forum kurallarına uygun bir şekilde cevabınızı yazın."),setTimeout(function(){t.scrollIntoView({behavior:"smooth",block:"center"})},150)))}function renderVbPage(t){var e=document.getElementById("vb-last-posts-target");if(e&&vbAllPosts.length){var n=(t-1)*vbPostsPerPage,a=vbAllPosts.slice(n,n+vbPostsPerPage),o="";a.forEach(function(t){o+='<div class="hamdi-forum-row"><div class="hamdi-avatar-holder"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><div class="hamdi-status-dot"></div></div><div class="hamdi-main-info"><div class="hamdi-title"><a href="'+t.link+'">'+t.title+'</a></div><div class="hamdi-meta"><span class="hamdi-author">'+safeText(t.author)+"</span>, "+t.date+'</div></div><div class="hamdi-replies-zone">Cevap: ('+t.replies+')</div><div class="hamdi-arrow-zone"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true" focusable="false"><polyline points="9 18 15 12 9 6"/></svg></div></div>'}),e.innerHTML=o;var i=Math.ceil(vbAllPosts.length/vbPostsPerPage);document.getElementById("vb-page-info-text").textContent="Sayfa "+t+" / "+i,document.getElementById("vb-prev-btn").disabled=1===t,document.getElementById("vb-next-btn").disabled=t===i,i>1&&(document.getElementById("vb-pagination-ctrl").style.display="flex")}}function changeVbPage(t){var e=Math.ceil(vbAllPosts.length/vbPostsPerPage),n=vbCurrentPage+t;n>=1&&n<=e&&(vbCurrentPage=n,renderVbPage(n),document.getElementById("vb-last-posts-target").scrollIntoView({behavior:"smooth",block:"start"}))}function loadForumSystem(){var t=document.getElementById("vb-last-posts-target");t&&(fetch("/feeds/posts/summary?alt=json&max-results=150").then(function(t){return t.json()}).then(function(e){var n=e.feed&&e.feed.entry||[],a=e.feed.openSearch$totalResults?e.feed.openSearch$totalResults.$t:n.length,o=document.getElementById("stat-total-posts");if(o&&(o.textContent=Number(a).toLocaleString("tr-TR")),n.length){var i={};vbAllPosts=[],n.forEach(function(t){var e=vbAltLink(t),n=e?e.href:"#",a=t.author&&t.author[0]&&t.author[0].name?cleanAuthorName(t.author[0].name.$t):"Misafir",o={title:safeText(t.title.$t),link:n,author:a,date:formatForumDate(t.published.$t),replies:t.thr$total?t.thr$total.$t:"0"};vbAllPosts.push(o),t.category&&t.category.forEach(function(t){i[t.term]||(i[t.term]=o)})});var r=document.getElementById("category");if(r){var s='<option value="">Kategori Seçin</option>';Object.keys(i).forEach(function(t){s+='<option value="'+safeText(t)+'">'+safeText(t)+"</option>"}),r.innerHTML=s}vbCurrentPage=1,renderVbPage(1);var l=document.getElementById("stat-last-topic");if(l&&n[0]){var c=vbAltLink(n[0]),u=c?c.href:"#",d=n[0].author&&n[0].author[0]&&n[0].author[0].name?n[0].author[0].name.$t:"Misafir";l.innerHTML='<strong style="color:inherit;">'+safeText(cleanAuthorName(d))+'</strong> - <a href="'+u+'" style="display:inline;color:var(--vbulletin-link);">'+safeText(n[0].title.$t)+"</a>"}document.querySelectorAll(".class-target-label-box").forEach(function(t){var e=t.getAttribute("data-label"),n=t.querySelector(".cat-last-post-box");if(n)if(i[e]){var a=i[e];n.innerHTML='Son Konu: <a class="cat-last-title" href="'+a.link+'">'+a.title+'</a><div class="cat-last-meta">Gönderen: <strong>'+safeText(a.author)+"</strong> — "+a.date+"</div>"}else n.innerHTML='<span style="color:var(--text-meta);font-style:italic;">Bu kategoride henüz konu yok.</span>'})}else t.innerHTML='<div style="padding:25px;text-align:center;color:#5b6b7f;">Henüz açılmış forum konusu bulunmuyor.</div>'}).catch(function(){t.innerHTML='<div style="padding:25px;text-align:center;color:#ef4444;">Sistem yüklenirken bir hata oluştu.</div>'}),fetch("/feeds/comments/default?alt=json&max-results=1").then(function(t){return t.json()}).then(function(t){var e=t.feed.openSearch$totalResults?t.feed.openSearch$totalResults.$t:"0",n=document.getElementById("stat-total-comments");n&&(n.textContent=Number(e).toLocaleString("tr-TR"));var a=t.feed&&t.feed.entry||[],o=document.getElementById("stat-last-reply");if(a.length&&o){var i=a[0].author&&a[0].author[0]&&a[0].author[0].name?cleanAuthorName(a[0].author[0].name.$t):"Misafir",r=a[0].summary?a[0].summary.$t:a[0].content?a[0].content.$t:"";(r=r.replace(/<\/?[^>]+(>|$)/g,"")).length>60&&(r=r.substring(0,60)+"..."),o.innerHTML='<strong style="color:inherit;">'+safeText(i)+'</strong> - <span style="font-style:italic;">"'+safeText(r)+'"</span>'}}).catch(function(){}))}function updateBloggerStats(){var t=document.getElementById("stat-total-views");if(t)try{for(var e=null,n=document.getElementsByTagName("script"),a=0;a<n.length;a++){var o=(n[a].textContent||"").match(/\/b\/stats\?[^'"]+/);if(o){e=o[0].replace(/\\x3d/g,"=").replace(/\\x26/g,"&");break}}e?fetch(e).then(function(t){return t.json()}).then(function(e){var n=e&&null!=e.total?e.total:0;t.textContent=Number(n).toLocaleString("tr-TR")}).catch(function(){t.textContent="0"}):t.textContent="0"}catch(e){t.textContent="0"}var i=document.querySelector(".stat-online-count");i&&(i.textContent=Math.floor(201*Math.random())+210+" Kullanıcı Aktif")}function vbGetState(){try{return JSON.parse(localStorage.getItem(VB_NOTIF_KEY))||{}}catch(t){return{}}}function vbSetState(t){try{localStorage.setItem(VB_NOTIF_KEY,JSON.stringify(t))}catch(t){}}function vbTime(t){var e=Date.parse(t);return isNaN(e)?0:e}function vbRenderNotifs(){var t=document.getElementById("vbNotif");if(t){var e=document.getElementById("vbNotifDot"),n=document.getElementById("vbNotifList");if(vbNotifItems.length?(t.classList.add("has-unread"),e&&(e.textContent=vbNotifItems.length>9?"9+":vbNotifItems.length)):t.classList.remove("has-unread"),n)if(vbNotifItems.length){var a="";vbNotifItems.forEach(function(t){a+='<a class="vb-notif-item" href="'+t.link+'"><span class="vb-notif-kind'+("reply"===t.kind?" reply":"")+'">'+("reply"===t.kind?"YENİ CEVAP":"YENİ KONU")+'</span><span class="vb-notif-title">'+t.title+'</span><span class="vb-notif-sub">'+t.sub+"</span></a>"}),n.innerHTML=a}else n.innerHTML='<div class="vb-notif-empty">Yeni bildirim yok.</div>'}}function vbToggleNotif(){var t=document.getElementById("vbNotif");if(t){var e=t.classList.toggle("open"),n=document.getElementById("vbNotifBell");if(n&&n.setAttribute("aria-expanded",e?"true":"false"),e){var a=vbGetState();vbSetState({seenTopic:vbNewest.seenTopic||a.seenTopic||"",seenComment:vbNewest.seenComment||a.seenComment||""}),t.classList.remove("has-unread")}}}function vbCheckActivity(){var t=fetch("/feeds/posts/summary?alt=json&orderby=published&max-results=12").then(function(t){return t.json()}).catch(function(){return null}),e=fetch("/feeds/comments/default?alt=json&max-results=12").then(function(t){return t.json()}).catch(function(){return null});Promise.all([t,e]).then(function(t){var e=vbGetState(),n=void 0===e.seenTopic&&void 0===e.seenComment,a=t[0]&&t[0].feed&&t[0].feed.entry||[],o=t[1]&&t[1].feed&&t[1].feed.entry||[];if(vbNewest.seenTopic=a.length?a[0].published.$t:e.seenTopic,vbNewest.seenComment=o.length?o[0].published.$t:e.seenComment,n)return vbSetState({seenTopic:vbNewest.seenTopic||"",seenComment:vbNewest.seenComment||""}),vbNotifItems=[],void vbRenderNotifs();var i=[];a.forEach(function(t){if(e.seenTopic&&vbTime(t.published.$t)>vbTime(e.seenTopic)){var n=vbAltLink(t),a=t.author&&t.author[0]&&t.author[0].name?cleanAuthorName(t.author[0].name.$t):"Misafir";i.push({kind:"topic",time:vbTime(t.published.$t),title:safeText(t.title.$t),sub:"Konu açan: "+safeText(a)+" · "+formatForumDate(t.published.$t),link:n?n.href:"#"})}}),o.forEach(function(t){if(e.seenComment&&vbTime(t.published.$t)>vbTime(e.seenComment)){var n=vbAltLink(t),a=t.author&&t.author[0]&&t.author[0].name?cleanAuthorName(t.author[0].name.$t):"Misafir",o=n&&n.title?n.title:"Bir konu";i.push({kind:"reply",time:vbTime(t.published.$t),title:safeText(o),sub:safeText(a)+" cevap yazdı · "+formatForumDate(t.published.$t),link:n?n.href:"#"})}}),i.sort(function(t,e){return e.time-t.time}),vbNotifItems=i,vbRenderNotifs()})}document.addEventListener("DOMContentLoaded",function(){document.getElementById("vb-last-posts-target")&&(loadForumSystem(),setTimeout(updateBloggerStats,600)),document.getElementById("vbNotif")&&(vbCheckActivity(),setInterval(vbCheckActivity,6e4),document.addEventListener("click",function(t){var e=document.getElementById("vbNotif");if(e&&e.classList.contains("open")&&!e.contains(t.target)){e.classList.remove("open");var n=document.getElementById("vbNotifBell");n&&n.setAttribute("aria-expanded","false")}}))});
+//]]></script>
+</body>
+</html>
